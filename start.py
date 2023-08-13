@@ -7,13 +7,10 @@ from fuzzywuzzy import fuzz
 import sqlite3
 from Visual import *
 from FF import *
+from db import DB
 
-def __init__():
-    global DBph
-    DBph = DB.DB_read()
-    __init_view__()
+DBph = DB.DB_read()
 
-__init__
 phrase = micro.record_volume()
 print(DBph)
 funcName = FindPhrase(phrase, DBph)

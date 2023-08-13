@@ -8,6 +8,7 @@ import sqlite3
 
 from channel import micro
 from func import power_off
+from func import file_editor
 from db import DB
 
 def FindPhrase(Phrase, DB):
@@ -22,11 +23,12 @@ def FindPhrase(Phrase, DB):
         print(fz)
     return DB[commandID][0]
 
-def OpenFunc(func):
+def OpenFunc(func, name = 'defoult'):
     match func:
         case 'screen_shot_full':
-            print('1')
+            power_off.screen_full()
         case 'pc_off':
             print('выключаю')
             power_off.powerOff(0)
-        
+        case 'add_txt_file_desk':
+            file_editor.add_file(name, 'txt')  
